@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# A script that prints time from 0:1 to 12:59
+
+hour=0
+hour_end=12
+min_end=59
+
+while [[ $hour -le $hour_end ]]; do
+	echo "Hour: $hour"
+	min=1
+	while [[ $min -le $min_end ]]; do
+		echo $min
+		((min = min + 1))
+	done
+	((hour = hour + 1))
+done

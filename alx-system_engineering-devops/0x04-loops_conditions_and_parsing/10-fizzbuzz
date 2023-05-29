@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# A fizz buzz bash script
+
+for ((i = 1; i <= 100; i = i + 1)); do
+	((t = i % 3))
+	((f = i % 5))
+	if ((t == 0 & f == 0)); then
+		echo "FizzBuzz"
+	elif [ $t -eq 0 ]; then
+		echo "Fizz"
+	elif [ $f -eq 0 ]; then
+		echo "Buzz"
+	else
+		echo "$i"
+	fi
+done

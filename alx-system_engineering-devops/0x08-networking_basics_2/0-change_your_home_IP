@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# A script that changes the ip of local host and facebook
+
+org='/etc/hosts'
+new="$HOME/.hosts.new"
+
+cp "$org" "$new"
+sed -i 's/[^#].*\tlocalhost$//' "$new"
+sed -i 's/[^#].*\tfacebook\.com$//' "$new"
+echo "127.0.0.2	localhost" >> "$new"
+echo "8.8.8.8	facebook.com" >> "$new"
+cp -f "$new" "$org"

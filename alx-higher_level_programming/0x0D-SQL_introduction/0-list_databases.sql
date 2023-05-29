@@ -1,0 +1,2 @@
+-- LIST ALL THE DATABASES
+SHOW databases

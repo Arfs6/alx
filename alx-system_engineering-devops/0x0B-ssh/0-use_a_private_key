@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Connect to server with ip address = 54.237.208.82 using user ubuntu
+
+ip_address='54.237.208.82'
+username='ubuntu'
+rsa_key="$HOME/.ssh/school"
+
+# connect
+ssh -i "$rsa_key" "$username@$ip_address"

@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# A script to print all the current running processes.
+
+ps -axuf

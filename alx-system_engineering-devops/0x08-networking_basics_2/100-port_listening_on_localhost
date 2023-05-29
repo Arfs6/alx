@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# A script that connects a local host to a port
+nc -l 98

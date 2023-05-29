@@ -1,0 +1,16 @@
+>>> say_my_name = __import__("3-say_my_name").say_my_name
+>>> # test for only first name
+>>> say_my_name("Abdulqadir")
+My name is Abdulqadir 
+>>> # test for both first name and second name
+>>> say_my_name("Abdulqadir", "Ahmad")
+My name is Abdulqadir Ahmad
+>>> # test for invalid first name
+>>> say_my_name(1)
+Traceback (most recent call last):
+TypeError: first_name must be a string
+>>> # test for invalid last name
+>>> say_my_name("Abdulqadir", ["Ahmad"])
+Traceback (most recent call last):
+TypeError: last_name must be a string
+>>>

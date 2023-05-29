@@ -1,0 +1,25 @@
+from sqlalchemy import ForeignKey, create_engine
+from sqlalchemy.orm import relationship, sessionmaker
+from sqlalchemy.ext.declarative import declarative_base
+
+Base = declarative_base()
+
+class Parent(Base):
+    __tablename__ = 'parents'
+    id = Column(Integer, primary_key=True)
+    children = relationship("Child", cascade="all,delete")
+
+class Child(Base):
+    __tablename__ = 'children'
+    id = Column(Integer, primary_key=True)
+    parent_id = Column(Integer, ForeignKey('parents.id'))
+
+engine = create_engine('mysql://user:pass@localhost/mydatabase')
+Base.metadata.create_all(engine)
+Session = sessionmaker(bind=engine)
+session = Session()
+
+parent = session.query(Parent).first()
+session.delete(parent)
+session.commit()
+

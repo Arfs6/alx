@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+# The script configures a new Ubuntu machine to install Nginx.
+
+# Update system repo
+apt update
+
+# Install Nginx
+apt install nginx -y
+
+# Open port 80 for listening
+ufw allow 'Nginx HTTP'
+
+# HTML constains string
+echo 'Hello World!' > /var/www/html/index.html
+
+# Configure server
+SERVER_CONFIG="\
+		server	{
+				listen 80 default_server;
+				listen [::]:80 default_server;
+				root /var/www/html;
+				index index.html index.htm index.nginx-debian.html;
+				server_name _;
+				location / {
+							try_files \$uri \$uri/ =404;
+				}
+				rewrite ^/redirect_me/ https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;
+		}"
+
+# Place configuration in nginx file
+bash -c "echo -e '$SERVER_CONFIG' > /etc/nginx/sites-enabled/default"
+
+# Restart Nginx
+service nginx restart

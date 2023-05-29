@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# A script that displays active v4 ip addresses
+ifconfig | grep 'inet ' | cut -d ' ' -f 10

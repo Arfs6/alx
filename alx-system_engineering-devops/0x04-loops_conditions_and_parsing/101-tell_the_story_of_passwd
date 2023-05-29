@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# A store about the /etc/passwd file.
+
+filename="/etc/passwd"
+while IFS= read -r line; do
+	user=$(echo "$line" | cut -d ":" -f 1)
+	password=$(echo "$line" | cut -d ":" -f 2)
+	uid=$(echo "$line" | cut -d ":" -f 3)
+	gid=$(echo "$line" | cut -d ":" -f 4)
+	user_info=$(echo "$line" | cut -d ":" -f 5)
+	home_dir=$(echo "$line" | cut -d ":" -f 6)
+	cmd=$(echo "$line" | cut -d ":" -f 7)
+	echo "The user $user is part of the $gid gang, lives in\
+ $home_dir and rides $cmd. $uid's place is protected \
+by the passcode $password, more info about the user here: $user_info"
+done < $filename

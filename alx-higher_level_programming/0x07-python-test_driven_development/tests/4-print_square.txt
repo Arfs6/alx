@@ -1,0 +1,15 @@
+>>> print_square = __import__("4-print_square").print_square
+>>> # test for 0
+>>> # test for normal integer
+>>> print_square(3)
+###
+###
+###
+>>> print_square(0)
+>>> print_square("abcd")
+Traceback (most recent call last):
+TypeError: size must be an integer
+>>> print_square(-3)
+Traceback (most recent call last):
+ValueError: size must be >= 0
+>>>

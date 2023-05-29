@@ -1,0 +1,20 @@
+>>> text_indentation = __import__("5-text_indentation").text_indentation
+>>> # test a correct string with '.', '?' and ':'
+>>> text_indentation("full stop . question mark ? column : ")
+full stop .
+<BLANKLINE>
+question mark ?
+<BLANKLINE>
+column :
+<BLANKLINE>
+>>> # pass invalid text
+>>> text_indentation(None)
+Traceback (most recent call last):
+TypeError: text must be a string
+>>> text_indentation(1024)
+Traceback (most recent call last):
+TypeError: text must be a string
+>>> text_indentation("")
+>>> text_indentation("hello world")
+hello world
+>>>

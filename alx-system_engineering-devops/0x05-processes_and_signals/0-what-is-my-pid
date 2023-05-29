@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# A script to display the pid of the script.
+pidof bash | cut -d ' ' -f 1

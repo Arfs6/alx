@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# A script that prints the content of a directory in a certain format
+
+files=$(ls -1 .)
+for file in $files; do
+	echo "$file" | cut -d "-" -f 2-
+done

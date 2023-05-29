@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# install and configure nginx
+apt update
+apt install nginx -y
+# sed -i 's/listen.*;/listen localhost:80;/g' /etc/nginx/nginx.conf
+echo '
+server {
+    listen 80;
+    server_name _;
+    root /var/www/html;
+
+    location / {
+        index index.html;
+    }
+}
+' > /etc/nginx/sites-available/default
+ln -s /etc/nginx/site-available/default /etc/nginx/site-enable
+echo 'Hello World!' > /var/www/html/index.html
+service nginx restart

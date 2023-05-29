@@ -1,0 +1,12 @@
+>>> MyList = __import__("1-my_list").MyList
+>>> l = MyList([1, 2, 3])
+>>> l
+[1, 2, 3]
+>>> l.append(0)
+>>> l.append(-1)
+>>> l.print_sorted()
+[-1, 0, 1, 2, 3]
+>>> t = MyList(22)
+Traceback (most recent call last):
+TypeError: 'int' object is not iterable
+>>>

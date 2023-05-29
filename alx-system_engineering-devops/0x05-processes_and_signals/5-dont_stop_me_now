@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# A script to stop another script.
+# shellcheck disable=SC2009
+i=$(ps -ax | grep '4-to_infinity_and_beyond' | cut -b -5 | tr -d ' ')
+for p in $i; do
+	kill "$p"
+	break
+done

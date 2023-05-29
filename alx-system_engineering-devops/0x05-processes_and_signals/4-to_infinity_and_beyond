@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# An infinity script.
+i=2
+while [ $i -eq 2 ]; do
+	echo "To infinity and beyond"
+	sleep 2
+done

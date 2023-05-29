@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Transfer a file locally to a remote server using scp
+
+if [ $# -lt 4 ]; then
+	echo "Usage: 0-transfer_file PATH_TO_FILE IP USERNAME PATH_TO_SSH_KEY"
+	exit
+fi
+
+scp -B -o StrictHostKeyChecking=no -o IdentityFile="$4" "$1" "$3@$2":~/

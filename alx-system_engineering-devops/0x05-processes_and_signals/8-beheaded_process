@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# A script to stop another script.
+# shellcheck disable=SC2009
+pkill -9 -f "7-highlander"

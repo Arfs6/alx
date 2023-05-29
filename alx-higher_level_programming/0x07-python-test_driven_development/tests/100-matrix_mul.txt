@@ -1,0 +1,60 @@
+>>> matrix_mul = __import__("100-matrix_mul").matrix_mul
+>>> # test for 2 X 2 and 2 X 2 matrices
+>>> m_a = [[1, 2], [3, 4]]
+>>> m_b = [[5, 6], [7, 8]]
+>>> result = [[19, 22], [43, 50]]
+>>> if result == matrix_mul(m_a, m_b):
+...	print("Success")
+Success
+>>> # test for 2 X 2 and 2 X 3 matrices
+>>> m_b[0].append(1)
+>>> m_b[1].append(3)
+>>> result[0].append(7)
+>>> result[1].append(15)
+>>> if result == matrix_mul(m_a, m_b):
+...	print("Success")
+Success
+>>> # testing for not lists
+>>> matrix_mul("not a list", m_b)
+Traceback (most recent call last):
+TypeError: m_a must be a list
+>>> matrix_mul(m_a, "m_b not a list")
+Traceback (most recent call last):
+TypeError: m_b must be a list
+>>> # testing for lists of non ints
+>>> matrix_mul(["not", "list"], m_a)
+Traceback (most recent call last):
+TypeError: m_a must be a list of lists
+>>> matrix_mul(m_b, ["not", "list"])
+Traceback (most recent call last):
+TypeError: m_b must be a list of lists
+>>> # trying empty matrices
+>>> matrix_mul([[]], m_b)
+Traceback (most recent call last):
+ValueError: m_a can't be empty
+>>> matrix_mul(m_a, [])
+Traceback (most recent call last):
+ValueError: m_b can't be empty
+>>> m_c = m_a.copy()
+>>> m_c[0] = [3, 'j']
+>>> matrix_mul(m_c, m_b)
+Traceback (most recent call last):
+TypeError: m_a should contain only integers or floats
+>>> matrix_mul(m_a, m_c)
+Traceback (most recent call last):
+TypeError: m_b should contain only integers or floats
+>>> # tests for unequal rows
+>>> m_c = m_a[:]
+>>> m_c.append([1, 3, 5])
+>>> matrix_mul(m_c, m_b)
+Traceback (most recent call last):
+TypeError: each row of m_a must be of the same size
+>>> matrix_mul(m_a, m_c)
+Traceback (most recent call last):
+TypeError: each row of m_b must be of the same size
+>>> # test for invalid multiplication
+>>> m_b.append([2, 3, 8])
+>>> matrix_mul(m_a, m_b)
+Traceback (most recent call last):
+ValueError: m_a and m_b can't be multiplied
+>>>

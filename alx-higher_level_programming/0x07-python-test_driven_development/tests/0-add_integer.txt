@@ -1,0 +1,35 @@
+>>> add_integer = __import__("0-add_integer").add_integer
+>>> add_integer('j')
+Traceback (most recent call last):
+TypeError: a must be an integer
+>>> add_integer(5, 'j')
+Traceback (most recent call last):
+TypeError: b must be an integer
+>>> add_integer(2, 3)
+5
+>>> add_integer(2, 3.5)
+5
+>>> add_integer(3.5, 2.5)
+5
+>>> add_integer(3.4, 2)
+5
+>>> add_integer(float('inf')) 
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+OverflowError: cannot convert float infinity to integer
+>>> add_integer(9, float('inf')) 
+Traceback (most recent call last):
+OverflowError: cannot convert float infinity to integer
+>>> add_integer(float('nan')) 
+Traceback (most recent call last):
+ValueError: cannot convert float NaN to integer
+>>> add_integer(9, float('nan')) 
+Traceback (most recent call last):
+ValueError: cannot convert float NaN to integer
+>>> add_integer() 
+Traceback (most recent call last):
+TypeError: add_integer() missing 1 required positional argument: 'a'
+>>> add_integer(9, 10, 11) 
+Traceback (most recent call last):
+TypeError: add_integer() takes from 1 to 2 positional arguments but 3 were given
+>>>  
